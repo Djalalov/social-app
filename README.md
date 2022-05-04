@@ -1,7 +1,6 @@
-#hellorepo
+#Twitter clone with NEXTJS, TAILWIND CSS, Firebase v9, NextAuth, Recoil
 
-SOme text
-## LOcal dev
 
-1. To use this program pls open the browser first
+##Social Media App
+
 
