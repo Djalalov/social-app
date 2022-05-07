@@ -18,6 +18,12 @@ const Input = () => {
 	const filePickerRef = useRef(null);
 	const [showEmojis, setShowEmojis] = useState(false);
 
+	const [active, setActive] = useState("");
+	const [chartActive, setChartActive] = useState(false);
+	const [emojiActive, setEmojiActive] = useState(false);
+	const [photoActive, setPhotoActive] = useState(false);
+	const [calendarActive, setCalendarActive] = useState(false);
+
 	const addImageToPost = e => {
 		const reader = new FileReader();
 		if (e.target.files[0]) {
@@ -32,7 +38,6 @@ const Input = () => {
 	const addEmoji = (e, emojiObject) => {
 		setShowEmojis(emojiObject);
 		setInput(prevInput => prevInput + emojiObject.emoji);
-		setShowEmojis(false);
 	};
 
 	return (
@@ -49,7 +54,7 @@ const Input = () => {
 						}}
 						value={input}
 						rows="2"
-						className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[60px]"
+						className="bg-transparent outline-none text-slate-200 text-lg placeholder-gray-500 tracking-wide w-full min-h-[60px]  placeholder:italic placeholder:text-slate-400"
 						placeholder="What's happening"
 					/>
 
@@ -72,8 +77,15 @@ const Input = () => {
 
 				<div className="flex items-center justify-between pt-2.5 ">
 					<div className="flex items-center">
-						<div className="icon" onClick={() => filePickerRef.current.click()}>
-							<PhotographIcon className="h-[22px] text-[#1d9bf0]" />
+						{/* /////////////////////////////// */}
+						<div
+							className={`icon ${active === "photoIcon" ? "active" : ""}`}
+							onClick={() => {
+								filePickerRef.current.click();
+								setActive("photoIcon");
+							}}
+						>
+							<PhotographIcon className="h-[22px] text-sky-600" />
 							<input
 								hidden
 								type="file"
@@ -81,25 +93,43 @@ const Input = () => {
 								ref={filePickerRef}
 							/>
 						</div>
-
-						<div className="icon rotate-90">
-							<ChartBarIcon className="text-[#1d9bf0] h-[22px]" />
+						<div
+							className={`icon rotate-90 ${
+								active === "chartIcon" ? "active" : ""
+							}`}
+							onClick={() => {
+								setActive("chartIcon");
+							}}
+						>
+							<ChartBarIcon className="text-sky-600 h-[22px]" />
 						</div>
-
-						<div className="icon" onClick={() => setShowEmojis(!showEmojis)}>
-							<EmojiHappyIcon className="text-[#1d9bf0] h-[22px]" />
+						{/************ EMOJI ICON *************/}
+						<div
+							className={`icon ${active === "emojiIcon" ? "active" : ""}`}
+							onClick={() => {
+								setShowEmojis(!showEmojis);
+								setActive("emojiIcon");
+							}}
+						>
+							<EmojiHappyIcon className="text-sky-600 h-[22px] " />
 						</div>
-
-						<div className="icon">
-							<CalendarIcon className="text-[#1d9bf0] h-[22px]" />
+						{/************ CALENDAR *************/}
+						<div
+							className={`icon ${active === "calendarIcon" ? "active" : ""}`}
+						>
+							<CalendarIcon
+								className="text-sky-600 h-[22px]"
+								onClick={() => {
+									setActive("calendarIcon");
+								}}
+							/>
 						</div>
-
-						{showEmojis && (
+						{showEmojis && active === "emojiIcon" && (
 							<Picker
 								onEmojiClick={addEmoji}
 								pickerStyle={{
 									position: "absolute",
-									marginTop: "400px",
+									marginTop: "370px",
 									marginLeft: -40,
 									maxWidth: "320px",
 									borderRadius: "20px",
@@ -112,6 +142,8 @@ const Input = () => {
 							/>
 						)}
 					</div>
+
+					<button className=""></button>
 				</div>
 			</div>
 		</div>

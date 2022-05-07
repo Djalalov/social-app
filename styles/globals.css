@@ -6,6 +6,9 @@
 	body {
 		@apply bg-black;
 	}
+	::-webkit-scrollbar {
+		display: none;
+	}
 }
 
 @layer components {
@@ -14,6 +17,10 @@
 	}
 
 	.icon {
-		@apply cursor-pointer w-9 h-9 hover:bg-[#1d9bf0] hover:bg-opacity-10 flex items-center justify-center rounded-full transition ease-out;
+		@apply cursor-pointer w-9 h-9 hover:bg-[#028ce8] hover:bg-opacity-20 flex items-center justify-center rounded-full transition ease-out;
+	}
+
+	.active {
+		@apply bg-[#028ce8] bg-opacity-20;
 	}
 }
