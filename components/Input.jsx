@@ -54,7 +54,7 @@ const Input = () => {
 						}}
 						value={input}
 						rows="2"
-						className="bg-transparent outline-none text-slate-200 text-lg placeholder-gray-500 tracking-wide w-full min-h-[60px]  placeholder:italic placeholder:text-slate-400"
+						className="bg-transparent outline-none text-slate-200 text-lg tracking-wide w-full min-h-[60px]  placeholder:italic placeholder:text-gray-700 placeholder:opacity-80"
 						placeholder="What's happening"
 					/>
 
@@ -143,7 +143,7 @@ const Input = () => {
 						)}
 					</div>
 
-					<button className=""></button>
+					<button className="buttonStyle px-4 py-1.5">Tweet</button>
 				</div>
 			</div>
 		</div>

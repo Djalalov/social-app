@@ -32,7 +32,7 @@ const Sidebar = () => {
 				<SidebarLink text="More" Icon={DotsCircleHorizontalIcon} />
 			</div>
 
-			<button className="hidden xl:inline ml-auto bg-[#1b9bf0] text-white rounded-full w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]">
+			<button className="hidden xl:inline ml-auto text-lg w-56 h-[52px] buttonStyle">
 				Tweet
 			</button>
 
