@@ -7,6 +7,12 @@ module.exports = nextConfig;
 
 module.exports = {
 	images: {
-		domains: ["rb.gy"],
+		domains: ["rb.gy", "lh3.googleusercontent.com"],
+	},
+
+	experimental: {
+		images: {
+			layoutRaw: true,
+		},
 	},
 };
