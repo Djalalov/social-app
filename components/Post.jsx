@@ -39,8 +39,28 @@ const Post = ({ post, id, postPage }) => {
 
 	useEffect(
 		() =>
+			onSnapshot(
+				query(
+					collection(db, "posts", id, "comments"),
+					orderBy("timestamp", "desc")
+				),
+				snapshot => setComments(snapshot.docs)
+			),
+		[id]
+	);
+
+	useEffect(
+		() =>
+			onSnapshot(collection(db, "posts", id, "likes"), snapshot =>
+				setLikes(snapshot.docs)
+			),
+		[id]
+	);
+
+	useEffect(
+		() =>
 			setLiked(likes.findIndex(like => like.id === session?.user?.uid) !== -1),
-		[likes]
+		[likes, session.user.uid]
 	);
 
 	const likePost = async () => {
@@ -72,10 +92,10 @@ const Post = ({ post, id, postPage }) => {
 							className="h-11 w-11 rounded-full mr-4"
 						/>
 					)}
-					<div className="text-slate-400">
+					<div className="text-slate-500">
 						<div className="inline-block group">
 							<h4
-								className={`font-bold text-slate-200 sm:text-base text-[15px] group-hover:underline ${
+								className={`font-bold text-slate-300 sm:text-base text-[15px] group-hover:underline ${
 									!postPage && "inline-block"
 								}`}
 							>
@@ -85,12 +105,12 @@ const Post = ({ post, id, postPage }) => {
 								@{post?.tag}
 							</span>
 						</div>{" "}
-						.{" "}
+						<span className="m-2"> ● </span>{" "}
 						<span className="hover:underline text-sm sm:text-[15px]">
-							{/* 	<Moment fromNow> {post?.timestamp?.toDate()}</Moment> */}
+							<Moment fromNow>{post?.timestamp?.toDate()}</Moment>
 						</span>
 						{!postPage && (
-							<p className="text-slate-600 sm:text-base mt-0.5">{post?.text}</p>
+							<p className="text-slate-300 sm:text-base mt-0.5">{post?.text}</p>
 						)}
 					</div>
 					<div className="icon group flex-shrink-0 ml-auto">
@@ -162,7 +182,7 @@ const Post = ({ post, id, postPage }) => {
 					>
 						<div className="icon group-hover:bg-pink-600/10">
 							{liked ? (
-								<HeartIconFilled className="h-5 group-hover:text-pink-600" />
+								<HeartIconFilled className="h-5 text-pink-600" />
 							) : (
 								<HeartIcon className="h-5 group-hover:text-pink-600" />
 							)}
