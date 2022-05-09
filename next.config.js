@@ -9,10 +9,4 @@ module.exports = {
 	images: {
 		domains: ["rb.gy", "lh3.googleusercontent.com"],
 	},
-
-	experimental: {
-		images: {
-			layoutRaw: true,
-		},
-	},
 };
