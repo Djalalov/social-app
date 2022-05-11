@@ -25,6 +25,10 @@
 	}
 
 	.buttonStyle {
-		@apply bg-sky-600 text-white rounded-full font-bold shadow-md hover:bg-sky-700 disabled:hover:bg-sky-600 disabled:opacity-50 disabled:cursor-default;
+		@apply bg-[#0d84d3] text-white rounded-full font-bold shadow-md hover:bg-sky-700 disabled:hover:bg-sky-600 disabled:opacity-50 disabled:cursor-default;
+	}
+
+	.tag {
+		@apply text-[#1d9bf0] font-normal cursor-pointer hover:underline;
 	}
 }

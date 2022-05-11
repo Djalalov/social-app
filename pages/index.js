@@ -4,7 +4,7 @@ import Sidebar from "../components/Sidebar";
 import { getProviders, getSession, useSession } from "next-auth/react";
 import { useRecoilState } from "recoil";
 import Login from "../components/Login";
-//import Widgets from "../components/Widgets";
+import Widgets from "../components/Widgets";
 import Modal from "../components/Modal";
 import { modalState } from "../atoms/modalAtom";
 
@@ -25,7 +25,10 @@ export default function Home({ trendingResults, followResults, providers }) {
 			<main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
 				<Sidebar />
 				<Feed />
-				{/* Widgets */}
+				<Widgets
+					trendingResults={trendingResults}
+					followResults={followResults}
+				/>
 
 				{isOpen && <Modal />}
 			</main>
@@ -34,11 +37,11 @@ export default function Home({ trendingResults, followResults, providers }) {
 }
 
 export async function getServerSideProps(context) {
-	const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+	const trendingResults = await fetch("https://jsonkeeper.com/b/MUEF").then(
 		res => res.json()
 	);
 
-	const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(res =>
+	const followResults = await fetch("https://jsonkeeper.com/b/8HVV").then(res =>
 		res.json()
 	);
 	const providers = await getProviders();
