@@ -26,8 +26,8 @@ const Sidebar = () => {
 				<Image
 					alt="logo"
 					src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
-					width={30}
-					height={30}
+					width={40}
+					height={40}
 				/>
 			</div>
 
