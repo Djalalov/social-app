@@ -20,7 +20,6 @@ import {
 	HeartIcon as HeartIconFilled,
 	ChatIcon as ChatIconFilled,
 } from "@heroicons/react/solid";
-import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -79,23 +78,14 @@ const Post = ({ post, id, postPage }) => {
 			className="p-3 flex cursor-pointer border-b border-gray-700"
 			onClick={() => router.push(`/${id}`)}
 		>
-			{!postPage && (
-				<img
-					src={post?.userImg}
-					alt=""
-					className="h-11 w-11 rounded-full mr-4"
-				/>
-			)}
-
 			<div className="flex flex-col space-y-6 w-full">
 				<div className={`flex ${!postPage && "justify-between"}`}>
-					{postPage && (
-						<img
-							src={post?.userImg}
-							alt="Profile image"
-							className="h-11 w-11 rounded-full mr-4"
-						/>
-					)}
+					<img
+						src={post?.userImg}
+						alt="Profile image"
+						className="h-11 w-11 rounded-full mr-4"
+					/>
+
 					<div className="text-slate-500">
 						<div className="inline-block group">
 							<h4
@@ -131,15 +121,13 @@ const Post = ({ post, id, postPage }) => {
 						{post?.text}
 					</p>
 				)}
-				<div className="-translate-x-7">
-					<Image
-						width={500}
-						height={400}
-						src={post?.image}
-						alt=""
-						className="rounded-2xl max-h-[700px] object-cover "
-					/>
-				</div>
+
+				<img
+					src={post?.image}
+					alt=""
+					className="rounded-2xl max-h-[700px] object-cover"
+				/>
+
 				<div
 					className={`text-slate-600 flex justify-between w-10/12 ${
 						postPage && "mx-auto"
