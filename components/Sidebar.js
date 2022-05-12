@@ -46,8 +46,10 @@ const Sidebar = () => {
 				Tweet
 			</button>
 
+			<div className=""></div>
+
 			<div
-				className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto  xl:-mr-5 mt-auto"
+				className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:mx-auto mt-auto xl:ml-20"
 				onClick={signOut}
 			>
 				<Image
@@ -61,7 +63,15 @@ const Sidebar = () => {
 					<h4 className="font-bold">{session.user.name}</h4>
 					<p className="text-slate-400 ">@{session.user.tag}</p>
 				</div>
-				<DotsHorizontalIcon className="h-5 hidden xl:inline ml-10" />
+
+				<div className="icon group ml-10">
+					<DotsHorizontalIcon
+						onClick={e => {
+							e.stopPropagation();
+						}}
+						className="hidden xl:inline h-5 text-slate-300 group-hover:text-[#028ce8]"
+					/>
+				</div>
 			</div>
 		</div>
 	);

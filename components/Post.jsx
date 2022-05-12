@@ -20,6 +20,7 @@ import {
 	HeartIcon as HeartIconFilled,
 	ChatIcon as ChatIconFilled,
 } from "@heroicons/react/solid";
+import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -86,7 +87,7 @@ const Post = ({ post, id, postPage }) => {
 				/>
 			)}
 
-			<div className="flex flex-col space-y-4 w-full">
+			<div className="flex flex-col space-y-6 w-full">
 				<div className={`flex ${!postPage && "justify-between"}`}>
 					{postPage && (
 						<img
@@ -117,7 +118,12 @@ const Post = ({ post, id, postPage }) => {
 						)}
 					</div>
 					<div className="icon group flex-shrink-0 ml-auto">
-						<DotsHorizontalIcon className="h-5 text-slate-300 group-hover:text-[#028ce8]" />
+						<DotsHorizontalIcon
+							onClick={e => {
+								e.stopPropagation();
+							}}
+							className="h-5 text-slate-300 group-hover:text-[#028ce8]"
+						/>
 					</div>
 				</div>
 				{postPage && (
@@ -125,13 +131,15 @@ const Post = ({ post, id, postPage }) => {
 						{post?.text}
 					</p>
 				)}
-
-				<img
-					src={post?.image}
-					alt=""
-					className="rounded-2xl max-h-[700px] object-cover mr-2 mt-4"
-				/>
-
+				<div className="-translate-x-7">
+					<Image
+						width={500}
+						height={400}
+						src={post?.image}
+						alt=""
+						className="rounded-2xl max-h-[700px] object-cover "
+					/>
+				</div>
 				<div
 					className={`text-slate-600 flex justify-between w-10/12 ${
 						postPage && "mx-auto"
@@ -192,7 +200,7 @@ const Post = ({ post, id, postPage }) => {
 						</div>
 						{likes.length > 0 && (
 							<span
-								className={`icon group-hover:text-pink-600 text-sm ${
+								className={`icon group-hover:text-pink-600 text-sm -translate-x-2 ${
 									liked && "text-pink-600"
 								}`}
 							>
