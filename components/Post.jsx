@@ -128,11 +128,7 @@ const Post = ({ post, id, postPage }) => {
 					className="rounded-2xl max-h-[700px] object-cover"
 				/>
 
-				<div
-					className={`text-slate-600 flex justify-between w-10/12 ${
-						postPage && "mx-auto"
-					}`}
-				>
+				<div className="text-slate-600 flex justify-around">
 					<div
 						className="flex items-center space-x-1 group"
 						onClick={e => {
@@ -198,10 +194,20 @@ const Post = ({ post, id, postPage }) => {
 					</div>
 
 					<div className="icon group">
-						<ShareIcon className="h-5 group-hover:text-sky-500" />
+						<ShareIcon
+							onClick={e => {
+								e.stopPropagation();
+							}}
+							className="h-5 group-hover:text-sky-500"
+						/>
 					</div>
 					<div className="icon group">
-						<ChatIcon className="h-5 group-hover:text-sky-500" />
+						<ChatIcon
+							onClick={e => {
+								e.stopPropagation();
+							}}
+							className="h-5 group-hover:text-sky-500"
+						/>
 					</div>
 				</div>
 			</div>

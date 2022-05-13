@@ -86,19 +86,23 @@ function Modal() {
 								>
 									<XIcon className="h-[22px] text-white" />
 								</div>
+								<div className="text-slate-300 ml-2 xl:text-lg font-semibold">
+									<h2>Comments</h2>
+								</div>
 							</div>
+
 							<div className="flex px-4 pt-5 pb-2.5 sm:px-6">
 								<div className="w-full">
-									<div className="text-[#6e767d] flex gap-x-3 relative">
+									<div className="text-slate-500 flex gap-x-3 relative">
 										<span className="w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-600" />
 										<img
 											src={post?.userImg}
 											alt=""
-											className="h-11 w-11 rounded-full"
+											className="h-11 w-11 rounded-full "
 										/>
 										<div>
 											<div className="inline-block group">
-												<h4 className="font-bold text-[#d9d9d9] inline-block text-[15px] sm:text-base">
+												<h4 className="font-bold text-slate-300 inline-block text-[15px] sm:text-base">
 													{post?.username}
 												</h4>
 												<span className="ml-1.5 text-sm sm:text-[15px]">
@@ -109,7 +113,7 @@ function Modal() {
 											<span className="hover:underline text-sm sm:text-[15px]">
 												<Moment fromNow>{post?.timestamp?.toDate()}</Moment>
 											</span>
-											<p className="text-[#d9d9d9] text-[15px] sm:text-base">
+											<p className="text-slate-200 text-[15px] sm:text-base">
 												{post?.text}
 											</p>
 										</div>
@@ -127,7 +131,7 @@ function Modal() {
 												onChange={e => setComment(e.target.value)}
 												placeholder="Tweet your reply"
 												rows="2"
-												className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
+												className="bg-transparent outline-none text-slate-300 text-lg placeholder-slate-500 placeholder:italic placeholder:opacity-50 tracking-wide w-full min-h-[80px]"
 											/>
 
 											<div className="flex items-center justify-between pt-2.5">

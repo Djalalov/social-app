@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import SidebarLink from "./SidebarLink";
 import { HomeIcon } from "@heroicons/react/solid";
-
+import { GoSignOut } from "react-icons/go";
 import {
 	HashtagIcon,
 	BellIcon,
@@ -46,32 +46,31 @@ const Sidebar = () => {
 				Tweet
 			</button>
 
-			<div className=""></div>
-
 			<div
-				className="text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:mx-auto mt-auto xl:ml-20"
+				className="text-[#d9d9d9] xl:ml-24 flex items-center justify-between rounded-full hover:bg-[#d9d9d9] hover:bg-opacity-10 cursor-pointer transition duration-200 ease-out mt-auto min-w-[70%] relative"
 				onClick={signOut}
 			>
-				<Image
-					className="rounded-full "
-					src={session.user.image}
-					alt=""
-					width={40}
-					height={40}
-				/>
-				<div className="hidden xl:inline leading-5 ml-4">
-					<h4 className="font-bold">{session.user.name}</h4>
-					<p className="text-slate-400 ">@{session.user.tag}</p>
+				<div className="flex align-center justify-center gap-2">
+					<Image
+						className="rounded-full "
+						src={session.user.image}
+						alt=""
+						width={50}
+						height={50}
+					/>
+
+					<div className="hidden xl:inline b">
+						<h4 className="font-bold">{session.user.name}</h4>
+						<p className="text-slate-400 ">@{session.user.tag}</p>
+					</div>
 				</div>
 
-				<div className="icon group ml-10">
-					<DotsHorizontalIcon
-						onClick={e => {
-							e.stopPropagation();
-						}}
-						className="hidden xl:inline h-5 text-slate-300 group-hover:text-[#028ce8]"
-					/>
-				</div>
+				<GoSignOut
+					onClick={e => {
+						e.stopPropagation();
+					}}
+					className="xl:inline hidden h-6 w-6 group text-slate-300 xl:mr-2"
+				/>
 			</div>
 		</div>
 	);
