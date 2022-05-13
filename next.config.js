@@ -3,17 +3,15 @@ const nextConfig = {
 	reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+export default nextConfig;
 
-module.exports = {
-	images: {
-		domains: [
-			"rb.gy",
-			"lh3.googleusercontent.com",
-			"i0.wp.com",
-			"english.cdn.zeenews.com",
-			"upload.wikimedia.org",
-			"firebasestorage.googleapis.com",
-		],
-	},
+export const images = {
+	domains: [
+		"rb.gy",
+		"lh3.googleusercontent.com",
+		"i0.wp.com",
+		"english.cdn.zeenews.com",
+		"upload.wikimedia.org",
+		"firebasestorage.googleapis.com",
+	],
 };
