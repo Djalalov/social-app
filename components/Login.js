@@ -28,7 +28,7 @@ const Login = ({ providers }) => {
 
 							<span className="absolute inset-0 w-full h-full border border-white hover:border-sky-600 rounded-full opacity-10"></span>
 							<span className="font-semibold ml-12 w-full text-left  transition-colors duration-200 ease-in-out">
-								Sign In with {provider.name}
+								Sign in with {provider.name}
 							</span>
 						</button>
 					</div>
