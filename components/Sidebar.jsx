@@ -3,6 +3,7 @@ import Image from "next/image";
 import SidebarLink from "./SidebarLink";
 import { HomeIcon } from "@heroicons/react/solid";
 import { GoSignOut } from "react-icons/go";
+import logo from "../public/logo.jpg";
 import {
 	HashtagIcon,
 	BellIcon,
@@ -23,12 +24,7 @@ const Sidebar = () => {
 	return (
 		<div className="hidden sm:flex flex-col items-center xl:items-start xl:w-[340px] p-2 fixed h-full">
 			<div className="flex items-center justify-center w-14 h-14 hoverAnimation p-0 xl:ml-24">
-				<Image
-					alt="logo"
-					src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Twitter-logo.svg"
-					width={40}
-					height={40}
-				/>
+				<Image alt="logo" src={logo} width={40} height={40} />
 			</div>
 
 			<div className="space-y-2.5 mt-4 mb-2.5 xl:ml-24">
@@ -43,7 +39,7 @@ const Sidebar = () => {
 			</div>
 
 			<button className="hidden xl:inline ml-auto text-lg w-56 h-[52px] buttonStyle">
-				Tweet
+				Comment
 			</button>
 
 			<div

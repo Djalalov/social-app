@@ -1,5 +1,5 @@
 import { signIn } from "next-auth/react";
-import logo from "../public/twitter-logo.png";
+import logo from "../public/logo.jpg";
 import Image from "next/image";
 import { FcGoogle } from "react-icons/fc";
 
