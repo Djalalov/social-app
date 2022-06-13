@@ -1,4 +1,4 @@
-# Twitter Clone 2022
+# Social app designed from the inspiration of twitter 2022
 
 ## Built with: React.js, Next.js, TailwindCSS, Recoil, Firebase v9, NextAuth.
 
