@@ -34,7 +34,6 @@ const Widgets = ({ trendingResults, followResults }) => {
 						className="hover:bg-white hover:bg-opacity-[0.03] px-4 py-2 cursor-pointer transition duration-200 ease-out flex items-center"
 						key={index}
 					>
-						{console.log(result)}
 						<Image
 							src={result.userImg}
 							width={50}
