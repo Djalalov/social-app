@@ -69,7 +69,7 @@ const PostPage = ({ trendingResults, followResults, providers }) => {
 						>
 							<ArrowLeftIcon className="h-5 text-white" />
 						</div>
-						Tweet
+						Posts
 					</div>
 
 					<Post id={id} post={post} postPage />
